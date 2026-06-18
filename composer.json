@@ -1,0 +1,53 @@
+{
+    "name": "taknone/phptgcalls",
+    "license": "MIT",
+    "description": "A high-performance, non-blocking PHP library for Telegram Group Calls and WebRTC streaming via Rust",
+    "type": "library",
+    "keywords": [
+        "phptgcalls",
+        "tgcalls",
+        "telegram",
+        "asynchronously",
+        "non-blocking",
+        "voip",
+        "webrtc",   
+        "stream",
+        "group-call",
+        "phone-call",
+        "rust",
+        "php"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tak\\Tgcalls\\": "src"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Tak None",
+            "email": "MrTakNone@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.4",
+        "taknone/liveproto": "*",
+        "taknone/asyncio": "*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cd ext && bash install.sh"
+        ],
+        "post-update-cmd": [
+            "cd ext && bash install.sh"
+        ]
+    },
+    "suggest": {
+        "ext-swoole": "Required for high-performance Swoole coroutine support ( > 5.0.0 )",
+        "ext-tgcrypto": "Speeds up encryption / decryption processes for Telegram MTproto"
+    }
+}
