@@ -5,7 +5,7 @@ echo "Checking for Clang installation..."
 
 if ! command -v clang &>/dev/null; then
     echo "Clang not found. Installing LLVM, Clang, and libclang..."
-    
+
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         if command -v apt-get &>/dev/null; then
             echo "Detected Ubuntu/Debian"
@@ -63,7 +63,6 @@ fi
 echo "Detected OS : $OS , using extension : $EXT_SUFFIX"
 
 EXT_FILE=$(find / -type f -iname "libphptgcalls.${EXT_SUFFIX}" 2>/dev/null | head -n 1)
-
 if [ -z "$EXT_FILE" ]; then
     echo "Error : No extension file found in target/release"
     exit 1
@@ -81,9 +80,15 @@ OUTPUT_FILE="$EXT_DIR/phptgcalls.$EXT_SUFFIX"
 
 cp "$EXT_FILE" "$OUTPUT_FILE" || { echo "Failed to copy extension file"; exit 1; }
 
+NTGCALLS_LIB=$(find / -type f -name "libntgcalls.${EXT_SUFFIX}" 2>/dev/null | head -n 1)
+if [ -z "$NTGCALLS_LIB" ]; then
+    echo "Error : libntgcalls.${EXT_SUFFIX} not found"
+    exit 1
+fi
+
+cp "$NTGCALLS_LIB" "$EXT_DIR/"
 
 PHP_INI=$(php --ini | awk -F': ' '/Loaded Configuration File/ {print $2}' | xargs)
-
 if [ -z "$PHP_INI" ]; then
     echo "Error : Could not find php.ini file"
     exit 1

@@ -195,7 +195,7 @@ TgCalls is designed to work hand-in-hand with **[LiveProto](https://github.com/T
 
 ## 🧪 Examples
 
-* Explore the [`examples/`](examples/) directory
+* Explore the [`example/`](example/) directory
 
 ---
 
