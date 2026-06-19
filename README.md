@@ -85,39 +85,55 @@ sequenceDiagram
 
 ### Prerequisites
 
-- **PHP 8.4+**
-- **Rust 1.96.0+**
+* PHP 8.4+
+* Rust 1.96.0+
 
-### From Source
+---
 
-```bash
-git clone https://github.com/TakNone/phptgcalls.git
-cd phptgcalls
-cd ext
-
-sudo bash install.sh
-```
-
-### Verify Installation
-
-```bash
-php --ri phptgcalls
-```
-
-### Composer
+### Using Composer
 
 > [!NOTE]
-> Automated Rust extension installation and php.ini configuration :
+> Install the framework in your project :
 
 ```bash
 composer require taknone/phptgcalls
 ```
 
 > [!NOTE]
-> To install the framework package without triggering the automatic extension installation script, use :
+> Then install the native extension :
 
 ```bash
-composer require taknone/phptgcalls --no-scripts
+cd vendor/taknone/phptgcalls/ext
+
+sudo bash install.sh
+```
+
+---
+
+### From Source
+
+> [!NOTE]
+> Clone the repository and install dependencies :
+
+```bash
+git clone https://github.com/TakNone/phptgcalls.git
+cd phptgcalls
+
+composer install
+```
+
+---
+
+### Extension Only
+
+> [!NOTE]
+> If you already have the repository :
+
+```bash
+git clone https://github.com/TakNone/phptgcalls.git
+cd phptgcalls/ext
+
+sudo bash install.sh
 ```
 
 ---

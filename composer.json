@@ -1,7 +1,7 @@
 {
     "name": "taknone/phptgcalls",
     "license": "MIT",
-    "description": "A high-performance, non-blocking PHP library for Telegram Group Calls and WebRTC streaming via Rust",
+    "description": "A high-performance , non-blocking PHP library for Telegram Group Calls and WebRTC streaming via Rust",
     "type": "library",
     "keywords": [
         "phptgcalls",
@@ -35,8 +35,14 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=8.4",
-        "taknone/liveproto": "*",
-        "taknone/asyncio": "*"
+        "taknone/asyncio": "*",
+        "taknone/bootstrapper": "*",
+        "taknone/liveproto": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "taknone/bootstrapper": true
+        }
     },
     "scripts": {
         "post-install-cmd": [
